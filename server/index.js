@@ -1,11 +1,15 @@
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
+
+// Middleware
 app.use(cors());
 app.use(express.json());
 
+// API Route
 app.post('/api/profile', async (req, res) => {
   const { username } = req.body;
 
@@ -44,19 +48,17 @@ app.post('/api/profile', async (req, res) => {
   }
 });
 
+// 🟢 Serve frontend static files (after API routes)
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+  });
+}
+
+// Server listening
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`✅ Server running at http://localhost:${PORT}`);
 });
-
-const path = require("path");
-
-// Serve static files from client/build
-app.use(express.static(path.join(__dirname, "../client/build")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
-});
-
-
-
