@@ -34,7 +34,7 @@ A modern, responsive full-stack web app to view detailed **LeetCode profiles** o
 
 ## 📸 Demo
 
-> **Live Demo** : [https://your-demo-link.com](https://leetcode-profile-visualizer.vercel.app/)
+> **Live Demo** : [app link](https://leetcode-profile-visualizer.vercel.app/)
 
 ---
 
