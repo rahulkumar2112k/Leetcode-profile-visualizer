@@ -4,6 +4,7 @@ const cors = require('cors');
 const path = require('path');
 
 const app = express();
+const apiURL = process.env.LEETCODE_API;
 
 // Middleware
 app.use(cors());
@@ -37,7 +38,8 @@ variables: { username },
 };
 
 try {
-const response = await axios.post('https://leetcode.com/graphql', query, {
+
+const response = await axios.post(apiURL, query, {
 headers: { 'Content-Type': 'application/json' },
 });
 
