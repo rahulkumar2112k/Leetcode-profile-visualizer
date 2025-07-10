@@ -5,10 +5,23 @@
   color: #f1f1f1;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.05);
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   border-radius: 10px;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+/* ✅ Mobile adjustments */
+@media screen and (max-width: 480px) {
+  .quote {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 }

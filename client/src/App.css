@@ -1,10 +1,9 @@
-/* App.css or index.css */
-
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   overflow-x: hidden;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 #root {
@@ -13,55 +12,123 @@ html, body {
 
 .app {
   background-color: #121212;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   min-height: 100vh;
-  width: 100vw;
-  padding: 2rem;
+  width: 100%;
+  padding: 2rem 1rem;
   color: white;
-  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
 }
 
+/* Title */
 h1 {
   color: #2d5f95;
-  margin-bottom: 1rem;
-  text-align: center; 
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  word-break: break-word;
 }
 
-
+/* Search Box */
 .search-box {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
   gap: 1rem;
+  align-items: stretch;
+  justify-content: center;
   margin-bottom: 2rem;
+  box-sizing: border-box;
 }
 
-input[type="text"] {
+.search-box input {
   padding: 0.75rem 1rem;
-  width: 250px;
   border: 2px solid #1c4988;
   border-radius: 8px;
   font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-button {
-  padding: 0.75rem 1.2rem;
+.search-box button {
+  padding: 0.75rem 1rem;
   background: #4b7bec;
   color: white;
   border: none;
   border-radius: 8px;
   font-weight: bold;
+  font-size: 1rem;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
-button:hover {
+.search-box button:hover {
   background: #3867d6;
+}
+
+.search-box button:disabled {
+  background: #777;
+  cursor: not-allowed;
 }
 
 .error {
   color: red;
   font-weight: bold;
+  text-align: center;
   margin-top: 1rem;
+}
+
+/* ✅ Add responsiveness to ProfileCard and Quotes containers */
+.profile-container {
+  width: 100%;
+  max-width: 800px;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.quotes-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* 🎯 Responsive for tablet and desktop */
+@media screen and (min-width: 768px) {
+  .search-box {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .search-box input {
+    flex: 1;
+  }
+
+  .search-box button {
+    width: auto;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* 🎯 Extra small screens (phones) */
+@media screen and (max-width: 480px) {
+  .app {
+    padding: 1rem 0.5rem;
+  }
+
+  .search-box input,
+  .search-box button {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
 }
